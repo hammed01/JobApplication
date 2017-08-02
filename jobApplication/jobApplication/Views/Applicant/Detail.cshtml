@@ -1,0 +1,19 @@
+﻿@model jobApplication.Models.Person
+
+@{
+    ViewBag.Title = "Detail";
+}
+
+
+<h2>Personal Data</h2>
+<div>FirstName: @Model.FirstName </div>
+<div>@Model.LastName </div>
+<div>@Model.DateOfBirth </div>
+<div>@Model.Address </div>
+<div>@Model.Age </div>
+@*<div>@Model.Sex </div>
+<div>@DateTime.Now.ToLongDateString() @DateTime.Now.ToLongTimeString() </div>
+<div> @DateTime.Now.Month</div>
+<div> @DateTime.Now.DayOfWeek</div>*@
+
+<a class="btn btn-sm btn-success" href="@Url.Action("ListOfApplicant","Applicant")"><small>Back</small></a>

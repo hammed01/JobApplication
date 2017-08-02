@@ -1,0 +1,74 @@
+﻿@model jobApplication.Models.Person
+
+@{
+    ViewBag.Title = "Registration";
+}
+
+<h2>Registration</h2>
+
+
+@using (Html.BeginForm("Registration", "Applicant", FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
+{
+    <div class="form-group row">
+        @if (!string.IsNullOrEmpty(Model.ActionMessage))
+        {
+            if (Model.ActionStatus)
+            {
+                <div class="alert alert-success" role="alert">
+                    <strong>@Model.ActionMessage</strong>
+                </div>
+            }
+            else
+            {
+                <div class="alert alert-danger" role="alert">
+                    <strong>@Model.ActionMessage</strong>
+                </div>
+            }
+
+        }
+    </div>
+
+
+    <div class="form-group">
+        @Html.TextBoxFor(m => m.FirstName, new { @class = "form-control", @placeholder = "First Name" })
+        @Html.ValidationMessageFor(m => m.FirstName, "", new { @class = "text-danger" })
+    </div>
+
+    <div class="form-group">
+        @Html.TextBoxFor(m => m.LastName, new { @class = "form-control", @placeholder = "Last Name" })
+        @Html.ValidationMessageFor(m => m.LastName, "", new { @class = "text-danger" })
+    </div>
+    <div class="form-group">
+        @Html.TextBoxFor(m => m.Address, new { @class = "form-control", @placeholder = "Address" })
+        @Html.ValidationMessageFor(m => m.Address, "", new { @class = "text-danger" })
+    </div>
+    <div class="form-group">
+        @Html.TextBoxFor(m => m.Sex, new { @class = "form-control", @placeholder = "Sex" })
+        @Html.ValidationMessageFor(m => m.Sex, "", new { @class = "text-danger" })
+    </div>
+    <div class="form-group">
+        @Html.TextBoxFor(m => m.DateOfBirth, new { @class = "form-control", @placeholder = "Date of Birth" })
+        @Html.ValidationMessageFor(m => m.DateOfBirth, "", new { @class = "text-danger" })
+    </div>
+
+    <div class="form-group">
+        @Html.TextBoxFor(m => m.HighSchool, new { @class = "form-control", @placeholder = "High School" })
+        @Html.ValidationMessageFor(m => m.DateOfBirth, "", new { @class = "text-danger" })
+    </div>
+
+
+    <div class="form-group">
+        @Html.TextBoxFor(m => m.Nationality, new { @class = "form-control", @placeholder = "Nationality" })
+        @Html.ValidationMessageFor(m => m.Nationality, "", new { @class = "text-danger" })
+    </div>
+
+
+    <div class="form-group ">
+        <button type="submit" id="btnLogin" class="btn  btn-primary">
+            Register
+        </button>
+    </div>
+
+    
+
+}

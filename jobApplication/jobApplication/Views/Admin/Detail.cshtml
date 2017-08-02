@@ -1,0 +1,16 @@
+﻿@model jobApplication.Models.Person
+
+@{
+    ViewBag.Title = "Detail";
+}
+
+<h2>Detail</h2>
+
+<h2>Details</h2><br>
+<div><strong>First Name:</strong> @Model.FirstName </div><br>
+<div><strong>Last Name:</strong> @Model.LastName</div><br>
+<div><strong>Address:</strong> @Model.Address </div><br>
+<div><strong>Date of Birth:</strong> @Model.DateOfBirth </div><br>
+
+
+<a class="btn btn-sm btn-success" href="@Url.Action("ListOfAdmin","Admin")"><small>Back</small></a>

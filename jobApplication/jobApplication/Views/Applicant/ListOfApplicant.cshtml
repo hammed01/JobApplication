@@ -1,0 +1,98 @@
+﻿
+@{
+    ViewBag.Title = "Registered";
+}
+
+<h2>Registered</h2>
+
+@model jobApplication.Models.Person
+
+<style>
+    .mypadding {
+        padding: 15px !important;
+    }
+</style>
+<div style="max-width: 100%; margin: 5% auto;">
+    <div class="modal-header">
+        <h6 class="modal-title"><strong>List of applicants</strong></h6>
+    </div>
+    <div class="layout-content">
+        <div class="container-fluid">
+            <div class="form-group row">
+
+                @if (!string.IsNullOrEmpty(Model.ActionMessage))
+                {
+                    if (Model.ActionStatus)
+                    {
+                        <div class="alert alert-success" role="alert">
+                            <strong>@Model.ActionMessage</strong>
+                        </div>
+                    }
+                    else
+                    {
+                        <div class="alert alert-danger" role="alert">
+                            <strong>@Model.ActionMessage</strong>
+                        </div>
+                    }
+                }
+                @Html.AntiForgeryToken()
+                @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+
+                @if (Model.PersonList != null)
+                {
+                    <div class="card card-stats-primary mypadding">
+                        <table cellspacing="0" width="100%">
+                            <thead>
+                                <tr>
+                                    
+                                    <th>Applicant ID</th>
+                                    <th>Applicant First Name</th>
+                                    <th>Applicant Last Name</th>
+                                    <th> Sex </th>
+                                    <th>Address </th>
+                                    <th> action</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @foreach (var obj in Model.PersonList)
+                                {
+
+                                    <tr>
+                                       
+                                        <td><small>@obj.Id</small></td>
+                                        <td><small>@obj.FirstName</small></td>
+                                        <td><small>@obj.LastName</small></td>
+                                        <td><small>@obj.Sex</small></td>
+                                        <td><small>@obj.Address</small></td>
+
+                                        <td>
+
+                                            <a class="btn btn-sm btn-success" href="@Url.Action("Detail","Applicant",new{Id = obj.Id})"><small>Details</small></a>
+                                            <a class="btn btn-sm btn-danger" href="@Url.Action("Edit","Applicant",new{Id = obj.Id})"><small>Edit</small></a>
+                                        </td>
+
+                                    </tr>
+                                }
+                            </tbody>
+                            <tfoot>
+                                <tr>
+                                    
+                                    <th>Applicant ID</th>
+                                    <th>Applicant First Name</th>
+                                    <th>Applicant Last Name</th>
+                                    <th> Sex </th>
+                                    <th>Address </th>
+                                    <th> action</th>
+                                </tr>
+                            </tfoot>
+                        </table>
+                    </div>
+                }
+            </div>
+        </div>
+
+    </div>
+</div>
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

@@ -1,0 +1,36 @@
+﻿
+@{
+    ViewBag.Title = "ViewDbLog";
+}
+
+<h2>ViewDbLog</h2>
+
+<div class="card card-stats-primary mypadding">
+<table cellspacing="0" width="100%">
+    <thead>
+        <tr>
+            <th>Log Date</th>
+            <th>Log Description</th>
+
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var log in ViewBag.DbLog)
+            {
+
+            <tr>
+                <td><small>@log.LogDate</small></td>
+                <td><small>@log.LogDescription</small></td>
+
+            </tr>
+        }
+    </tbody>
+    <tfoot>
+        <tr>
+            <th>Log Date</th>
+            <th>Log Description</th>
+
+        </tr>
+    </tfoot>
+</table>
+</div>

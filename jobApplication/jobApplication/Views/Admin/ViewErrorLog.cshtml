@@ -1,0 +1,24 @@
+﻿
+@{
+    ViewBag.Title = "ViewErrorLog";
+}
+
+<h2>ViewErrorLog</h2>
+
+<div class="card card-stats-primary mypadding">
+
+
+   @foreach (var log in ViewBag.FileLog)
+    {
+        <div class="row form-group">
+            <div class="col-sm-2">
+                <div>@log.FileDate</div>
+            </div>
+            <div class="col-sm-10">
+                <div>@log.FileContent</div>
+            </div>
+        </div>
+        <hr />
+    }
+
+    </div>
